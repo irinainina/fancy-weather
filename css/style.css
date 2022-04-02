@@ -1,0 +1,917 @@
+@font-face {
+  font-family: MontserratThin;
+  src: url("../assets/fonts/MontserratThin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../assets/fonts/Montserrat.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: MontserratBold;
+  src: url("../assets/fonts/MontserratBold.woff2") format("woff2");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0px;
+  min-height: 100vh;
+  max-width: 100vw;
+  background-color: #3b444a;
+  background-blend-mode: multiply;
+  overflow-x: hidden;
+  background: url("../assets/img/bg.jpg") center center / cover no-repeat, linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 24px;
+  max-width: 1440px;
+  padding: 40px 90px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  margin-bottom: 56px;
+}
+
+.header-btns {
+  display: flex;
+}
+
+.btn {
+  position: relative;
+  height: 44px;
+  width: 44px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-family: MontserratBold;
+  font-size: 14px;
+  line-height: 44px;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.9);
+  background-color: rgba(174, 181, 185, 0.6);
+}
+
+.reload-btn {
+  background-image: url("../assets/svg/reload-image.svg");
+}
+
+.lang-btn {
+  width: 71px;
+}
+
+.lang-btn:active {
+  transform: none;
+}
+
+.lang-btn select {
+  height: 44px;
+  width: 71px;
+  cursor: pointer;
+  font-family: MontserratBold;
+  color: #fff;
+  font-size: 14px;
+  line-height: 44px;
+  text-transform: uppercase;
+  background-color: rgba(174, 181, 185, 0.5);
+  background-image: url("../assets/svg/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: 46px 19px;
+  border: 0;
+  border-radius: 5px;
+  padding-left: 15px;
+  outline: none;
+  -webkit-appearance: none;
+  user-select: auto;
+}
+
+.lang-btn select option {
+  background-color: #00000088;
+  font-family: Montserrat;
+}
+
+.lang-btn select option:focus {
+  outline: none;
+}
+
+.temp-btns {
+  display: flex;
+}
+
+.temp-btn {
+  margin-right: 0px;
+  background-color: rgba(76, 82, 85, 0.4);
+  text-align: center;
+  transition: .3s;
+}
+
+.temp-btn-f {
+  border-radius: 5px 0 0 5px;
+}
+
+.temp-btn-c {
+  border-radius: 0 5px 5px 0;
+  margin-right: 10px;
+}
+
+.temp-btn-active {
+  background-color: rgba(174, 181, 185, 0.5);
+}
+
+.audio-btn {
+  border-radius: 5px;
+  background-color: rgba(174, 181, 185, 0.5);
+  background-position: 17px center;
+  background-size: 12px auto;
+  background-repeat: no-repeat;
+  margin-right: 0;
+}
+
+.audio-play {
+  background-image: url("../assets/svg/play.svg");
+}
+
+.audio-pause {
+  background-position: 10px center;
+  background-size: 24px auto;
+  background-image: url("../assets/svg/pause.svg");
+}
+
+/*  Search */
+.search-panel {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 44px;
+  margin-left: auto;
+}
+
+.search-input {
+  box-sizing: border-box;
+  padding: 5px 0px 5px 20px;
+  margin: 0;
+  background-color: rgba(76, 82, 85, 0.4);
+  border: 1px solid rgba(228, 227, 227, 0.2);
+  border-right: 0;
+  width: 220px;
+  height: 44px;
+  border-radius: 5px 0 0 5px;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
+}
+
+.search-input:focus {
+  outline: 0;
+}
+
+.search-input::placeholder {
+  font-family: MontserratThin;
+  font-size: 14px;
+  color: #fff;
+}
+
+.voice {
+  width: 55px;
+  height: 44px;
+  background-image: url("../assets/svg/mic.svg");
+  background-size: 14px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: rgba(76, 82, 85, 0.4);
+  border-top: 1px solid rgba(228, 227, 227, 0.2);
+  border-bottom: 1px solid rgba(228, 227, 227, 0.2);
+  cursor: pointer;
+}
+
+.search-button {
+  width: 100px;
+  height: 44px;
+  border-radius: 0 5px 5px 0;
+  border: 0;
+  background: rgba(174, 181, 185, 0.5);
+  font-family: MontserratBold;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 44px;
+}
+
+.search-button:focus {
+  outline: 0;
+}
+
+.voice-active {
+  position: relative;
+}
+
+.voice-active:before,
+.voice-active:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  margin: auto;
+}
+
+.voice-active:before {
+  animation: pulse 1.5s infinite linear;
+}
+
+.voice-active:after {
+  animation: pulse 2s 0.4s infinite linear;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  33% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Location */
+.location {
+  width: 720px;
+}
+
+.location-place {
+  min-height: 54px;
+  font-family: MontserratBold;
+  font-size: 44px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.location-date {
+  text-transform: none;
+  margin-bottom: 130px;
+}
+
+.location-day {
+  margin-right: 20px;
+  text-transform: capitalize;
+}
+
+.location-weather {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 0px;
+  margin-bottom: 60px;
+}
+
+.location-temperature {
+  display: flex;
+  flex: 1.8;
+  font-size: 280px;
+  height: 280px;
+  font-family: MontserratBold;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  letter-spacing: -10px;
+}
+
+.location-degree {
+  position: relative;
+  z-index: 2;
+  font-size: 100px;
+  line-height: 215px;
+  vertical-align: top;
+  font-family: MontserratBold;
+  font-weight: 700;
+  padding: 0;
+}
+
+.location-icon {
+  position: absolute;
+  z-index: 2;
+  top: -10px;
+  width: 200px;
+  height: 200px;
+  margin-left: 20px;
+  margin-top: -10px;
+}
+
+.location-details {
+  flex: 1.2;
+}
+
+.location-details p {
+  font-size: 22px;
+  line-height: 22px;
+  padding: 6px 0;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.location-details span:nth-child(1) {
+  padding-right: 10px;
+}
+
+.wind-units {
+  text-transform: none;
+}
+
+.location-forecast {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.nextday:nth-child(1),
+.nextday:nth-child(2) {
+  flex: 0.9;
+}
+
+.nextday:nth-child(3) {
+  flex: 1.2;
+}
+
+.nextday p {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0 0 10px;
+}
+
+p.day-temperature {
+  font-size: 60px;
+  padding: 0;
+  margin: 0;
+  vertical-align: top;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+p.day-temperature span {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.nextday-icon {
+  position: relative;
+  z-index: 2;
+  width: 80px;
+  height: 98px;
+  margin-left: -5px;
+}
+
+.nextday-icon svg {
+  position: absolute;
+  top: 0;
+}
+
+.geolocation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: relative;
+  width: 375px;
+}
+
+.map {
+  position: absolute;
+  top: 250px;
+  width: 375px;
+  height: 385px;
+  -webkit-mask-image: url("../assets/img/1.png");
+  mask-image: url("../assets/img/1.png");
+}
+
+.coordinates {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 375px;
+  margin-bottom: 12px;
+}
+
+.coordinates p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: right;
+  text-transform: capitalize;
+}
+
+@media all and (max-width: 1298px) {
+  body {
+    padding: 40px 20px;
+    max-width: 1100px;
+  }
+}
+
+@media all and (max-width: 1138px) {
+  body {
+    max-width: 720px;
+    padding: 40px;
+  }
+
+  .header {
+    max-width: 720px;
+    margin-bottom: 60px;
+  }
+
+  .audio-btn {
+    margin-right: 10px;
+  }
+
+  .main {
+    max-width: 720px;
+    flex-direction: column;
+  }
+
+  .geolocation {
+    position: relative;
+    width: 720px;
+    min-height: 500px;
+    padding-top: 80px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .map {
+    width: 680px;
+    -webkit-mask-image: none;
+    mask-image: none;
+    top: 80px;
+  }
+
+  .coordinates {
+    width: 780px;
+    height: 440px;
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+  }
+}
+
+@media all and (max-width: 780px) {
+  body {
+    font-size: 20px;
+  }
+
+  .header {
+    justify-content: space-between;
+  }
+
+  .header-btns {
+    display: flex;
+  }
+
+  .search-panel {
+    margin-left: 0;
+  }
+
+  .search-input {
+    width: 165px;
+  }
+
+  .search-button {
+    width: 80px;
+    text-transform: capitalize;
+    font-family: Montserrat;
+  }
+
+  .location {
+    width: 100%;
+  }
+
+  .location-place,
+  .location-date {
+    display: flex;
+    justify-content: center;
+  }
+
+  .location-place {
+    text-align: center;
+  }
+
+  .location-time {
+    min-width: 85px;
+  }
+
+  .location-weather {
+    flex-direction: column;
+  }
+
+  .location-temperature {
+    flex: 1;
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .current-temperature {
+    margin-left: -110px;
+  }
+
+  .location-icon {
+    width: 120px;
+    margin-left: 10px;
+  }
+
+  .location-place {
+    font-size: 36px;
+    font-weight: 600;
+  }
+
+  .location-details {
+    margin: 0 auto;
+  }
+
+  .location-details p {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 1px;
+  }
+
+  .nextday {
+    flex: 1 !important;
+  }
+
+  .nextday p {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  p.day {
+    text-align: center;
+  }
+
+  p.day-temperature {
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nextday-icon {
+    width: 55px;
+    margin-left: 5px;
+  }
+
+  .map {
+    width: calc(100vw - 80px);
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .geolocation {
+    width: 100%;
+  }
+
+  .coordinates {
+    margin: 0 auto;
+    align-items: flex-end;
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 640px) {
+  body {
+    font-size: 18px;
+  }
+
+  .header {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .header-btns {
+    width: 300px;
+    justify-content: flex-start;
+    margin-bottom: 40px;
+  }
+
+  .btn {
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    margin-right: 10px;
+  }
+
+  .lang-btn,
+  .lang-btn select {
+    width: 78px;
+    height: 48px;
+    background-position: 50px 21px;
+  }
+
+  .reload-btn {
+    background-size: cover;
+    background-position: center center;
+    border-radius: 5px;
+  }
+
+  .temp-btn-f {
+    margin-right: 0;
+  }
+
+  .audio-btn {
+    background-position: 19px center;
+    margin-right: 0;
+  }
+
+  .audio-pause {
+    background-position: 12px center;
+  }
+
+  .search-button {
+    width: 80px;
+  }
+
+  .search-panel,
+  .search-input,
+  .search-button,
+  .voice {
+    height: 48px;
+    margin-bottom: 20px;
+  }
+
+  .location {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .location-place {
+    font-size: 28px;
+  }
+
+  .nextday p,
+  .location-details p {
+    font-size: 18px;
+  }
+
+  p.day-temperature {
+    font-size: 44px
+  }
+
+  .location-temperature {
+    flex: 0.66;
+    font-size: 180px;
+    height: 180px;
+  }
+
+  .location-degree {
+    font-size: 50px;
+    line-height: 130px;
+  }
+
+  .location-icon {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-size: 120px auto;
+    left: 20px;
+  }
+
+  .location-details p {
+    font-size: 18px;
+    line-height: 24px;
+    padding: 10px 0;
+  }
+
+  .location-forecast {
+    justify-content: space-between;
+  }
+
+  .nextday p:nth-child(1) {
+    font-size: 18px;
+    text-transform: capitalize;
+  }
+
+  .nextday-icon {
+    position: relative;
+    width: 40px;
+    height: 60px;
+    margin-left: 0px;
+    vertical-align: top;
+  }
+
+  .nextday:nth-child(1),
+  .nextday:nth-child(2),
+  .nextday:nth-child(3) {
+    flex: 1;
+  }
+}
+
+@media all and (max-width: 490px) {
+  .header,
+  .main,
+  .location {
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .header {
+    margin-bottom: 60px;
+  }
+
+  .location-place {
+    font-size: 24px;
+  }
+
+  .location-day {
+    margin-right: 10px;
+  }
+
+  .location-weather {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .location-temperature {
+    font-family: Montserrat;
+    font-size: 150px;
+  }
+
+  .current-temperature {
+    margin-left: -95px;
+  }
+
+  .location-degree {
+    font-size: 50px;
+    line-height: 110px;
+  }
+
+  .location-icon {
+    width: 80px;
+    background-size: 80px auto;
+    left: 10px;
+  }
+
+  .location-forecast {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .nextday {
+    width: 300px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .nextday p.day {
+    margin-right: 20px;
+    margin-left: 40px;
+    text-transform: uppercase;
+  }
+
+  .nextday-icon {
+    width: 55px;
+    height: 60px;
+    margin-left: 5px;
+    vertical-align: top !important;
+  }
+
+  .map {
+    width: 300px;
+    height: 300px;
+  }
+
+  .coordinates {
+    width: 300px;
+    height: 380px;
+    margin-left: 40px;
+    font-size: 18px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  .coordinates p {
+    font-size: 18px;
+  }
+}
+
+@media all and (max-width: 380px) {
+  body {
+    padding: 40px 10px;
+  }
+}
+
+/* buttons animation */
+.btn {
+  display: block;
+  position: relative;
+  transition: background 0.15s ease-in-out;
+}
+
+i {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03) 1%, rgba(255, 255, 255, 0.6) 30%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.85) 70%, rgba(255, 255, 255, 0.85) 71%, rgba(255, 255, 255, 0) 100%);
+  width: 15%;
+  height: 100%;
+  transform: skew(-10deg, 0deg);
+  animation: move 1s;
+  animation-iteration-count: infinite;
+  animation-delay: .1s;
+  pointer-events: none;
+}
+
+.btn i {
+  display: none;
+}
+
+.btn:hover i {
+  display: block;
+}
+
+.search-button i {
+  animation: move 1.5s;
+  animation-iteration-count: infinite;
+  animation-delay: .1s;
+}
+
+@keyframes move {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0;
+  }
+
+  48% {
+    opacity: 0.2;
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    left: 82%;
+  }
+}
+
+/* Weather animation icon */
+.element {
+  height: 200px;
+  width: 200px;
+  margin: 10px;
+  position: absolute;
+  margin-top: -80px;
+  margin-left: 160px;
+}
+
+.white {
+  fill: #FFFFFF
+}
+
+.gray {
+  fill: #E0E0E0
+}
+
+.yellow {
+  fill: #ed760e
+}

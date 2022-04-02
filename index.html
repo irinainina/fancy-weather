@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./assets/favicon.ico">
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' /> 
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+  <link rel="stylesheet" href="./css/birds.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>fancy-weather</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header-btns">
+      <div class="reload-btn btn">
+        <i></i>
+      </div>
+      <div class="lang-btn btn">
+        <i></i>
+        <select>
+          <option>en</option>
+          <option>ru</option>
+          <option>ua</option>
+        </select>
+      </div>
+      <div class="temp-btns">
+        <div class="temp-btn temp-btn-f btn" data-scale="F">
+          °F
+          <i></i>
+        </div>
+        <div class="temp-btn temp-btn-c temp-btn-active btn" data-scale="C">
+          °C
+          <i></i>
+        </div>
+        <div class="audio-btn audio-play btn">
+          <i></i>
+        </div>
+      </div>
+    </div>
+    <div class="search-panel">
+      <input class="search-input" type="text" value="" placeholder="Search City">
+      <div class="voice"></div>
+      <div class="search-button btn">
+        Search
+        <i></i>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="location">
+      <p class="location-place">
+      </p>
+      <div class="location-date">
+        <span class="location-day">
+        </span>
+        <span class="location-time">
+        </span>
+      </div>
+      <div class="location-weather">
+        <p class="location-temperature">
+          <span class="current-temperature"></span>
+          <span class="location-degree">°
+            <span class="location-icon"></span>
+          </span>
+        </p>
+        <div class="location-details">
+          <p class="summary"></p>
+          <p class="apparent-temperature">
+            <span class="apparent-text">Feels like:</span>
+            <span class="apparent-value"></span>
+          </p>
+          <p class="wind-speed">
+            <span class="wind-text">Wind:</span>
+            <span class="wind-value"></span>
+            <span class="wind-units">m/s</span>
+          </p>
+          <p class="humidity">
+            <span class="humidity-text">Humidity:</span>
+            <span class="humidity-value"></span>
+          </p>
+        </div>
+      </div>
+      <div class="location-forecast">
+        <div class="nextday">
+          <p class="day"></p>
+          <p class="day-temperature">
+            <span class="nextday-temperature"></span>
+            <span class="nextday-icon"></span>
+          </p>
+        </div>
+        <div class="nextday">
+          <p class="day"></p>
+          <p class="day-temperature">
+            <span class="nextday-temperature"></span>
+            <span class="nextday-icon"></span>
+          </p>
+        </div>
+        <div class="nextday">
+          <p class="day"></p>
+          <p class="day-temperature">
+            <span class="nextday-temperature"></span>
+            <span class="nextday-icon"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="geolocation">
+      <div id="map" class="map"></div>
+      <div class="coordinates">
+        <p class="latitude">
+          <span class="latitude-text">Latitude:</span>
+          <span class="latitude-value"></span>
+        </p>
+        <p class="longitude">
+          <span class="longitude-text">Longitude:</span>
+          <span class="longitude-value"></span>
+        </p>
+      </div>
+    </div>
+    <audio src="https://fancy-weather.netlify.com/assets/audio.mp3"></audio>
+  </main>
+  <div class="birds-container birds-container-none">
+    <div class="bird-container bird-container--one">
+      <div class="bird bird--one"></div>
+    </div>
+    <div class="bird-container bird-container--two">
+      <div class="bird bird--two"></div>
+    </div>
+    <div class="bird-container bird-container--three">
+      <div class="bird bird--three"></div>
+    </div>
+    <div class="bird-container bird-container--four">
+      <div class="bird bird--four"></div>
+    </div>
+  </div>
+  <script type="module" src="./index.js"></script>
+</body>
+</html>

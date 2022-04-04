@@ -14,9 +14,9 @@ langBtn.addEventListener('change', () => {
   switchLang();
   showLocation(state.location, state.lang);
   translate(state.lang);
-  showTime(state.lang, state.timeZone);
-  showDate(state.lang, state.timeZone);
-  showForecastDate(state.lang, state.timeZone);
+  showTime(state.lang);
+  showDate(state.lang);
+  showForecastDate(state.lang);
   getWeather(state.location, state.lang);
   getForecast(state.location, state.lang);
 });

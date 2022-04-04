@@ -2,6 +2,7 @@ import state from './app.js';
 import showLocation from './showLocation.js';
 import getWeather from './getWeather.js';
 import getForecast from './getForecast.js';
+import translate from './translate.js';
 import {showTime, showDate, showForecastDate} from './time.js';
 import bgImage from './bgImage.js';
 import {showMap, showCoordinates} from './map.js'
@@ -26,9 +27,10 @@ async function searchLocation() {
   state.timeZone = data.results[0].annotations.timezone.name;
   bgImage();
   showLocation(state.location, state.lang);
-  showTime(state.lang, state.timeZone);
-  showDate(state.lang, state.timeZone);
-  showForecastDate(state.lang, state.timeZone);
+  translate(state.lang);
+  showTime(state.lang);
+  showDate(state.lang);
+  showForecastDate(state.lang);
   getWeather(state.location, state.lang);
   getForecast(state.location, state.lang);
   showMap(state.loc);

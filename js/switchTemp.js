@@ -37,16 +37,12 @@ function switchTempScale() {
   tempBtnF.classList.remove('temp-btn-active');
   tempBtnC.classList.remove('temp-btn-active');
   this.classList.add('temp-btn-active');
-  state.tempScale = this.dataset.scale;  
+  state.tempScale = this.dataset.scale;
+  localStorage.setItem('tempScale', state.tempScale);
   showTemp();
 }
 tempBtnF.addEventListener('click', switchTempScale);
 tempBtnC.addEventListener('click', switchTempScale);
-
-// set language in localStorage
-window.onbeforeunload = () => {
-  localStorage.setItem('tempScale', state.tempScale);
-};
 
 // get temperature scale from localStorage
 function getLocalStorageTemp() {

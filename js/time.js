@@ -3,32 +3,32 @@ import state from './app.js';
 function getLocale(lang) {
   switch (lang) {
     case 'ru': return 'ru-Ru';
-    case 'ua': return 'uk-UA';
+    case 'uk': return 'uk-UA';
     case 'en': return 'en-GB';
   }
 }
 
-function showTime(lang, timeZone) {
+function showTime(lang) {
   const date = new Date();
-  const optionsTime = { hour: 'numeric', minute: 'numeric', second: 'numeric', timeZone: timeZone};
+  const optionsTime = { hour: 'numeric', minute: 'numeric', second: 'numeric', timeZone: state.timeZone};
   const locale = getLocale(lang);
   const currentTime = date.toLocaleString(locale, optionsTime);
   const locationTime = document.querySelector('.location-time');
   locationTime.textContent = currentTime;  
-  setTimeout(() => showTime(), 1000);
+  setTimeout(() => showTime(lang), 1000);
 }
 
-function showDate(lang, timeZone) {
+function showDate(lang) {
   const date = new Date();
   const locationDay = document.querySelector('.location-day');  
-  const optionsDay = { weekday: 'long', day: 'numeric', month: 'long', timeZone };
+  const optionsDay = { weekday: 'long', day: 'numeric', month: 'long', timeZone: state.timeZone };
   const locale = getLocale(lang);
   const currentDate = date.toLocaleString(locale, optionsDay);
   locationDay.textContent = currentDate;
 }
 
-function showForecastDate(lang, timeZone) {  
-  const optionsDay = { weekday: 'long', timeZone };
+function showForecastDate(lang) {  
+  const optionsDay = { weekday: 'long', timeZone: state.timeZone };
   const locale = getLocale(lang);
   const msInDay = 86400000;
   const nextday = document.querySelectorAll('.nextday');

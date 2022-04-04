@@ -47,7 +47,6 @@ tempBtnC.addEventListener('click', switchTempScale);
 // get temperature scale from localStorage
 function getLocalStorageTemp() {
   state.tempScale = localStorage.getItem('tempScale') || 'C';
-  console.log(state.tempScale);
   if(state.tempScale !== 'C') {
     tempBtnC.classList.remove('temp-btn-active');
     tempBtnF.classList.add('temp-btn-active');

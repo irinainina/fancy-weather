@@ -11,10 +11,10 @@ const searchInput = document.querySelector('.search-input');
 let searchValue;
 searchInput.addEventListener('change', () => {
   searchValue = searchInput.value.trim();
-  searchLocation();
+  searchLocation(searchValue);
 });
 
-async function searchLocation() {
+async function searchLocation(searchValue) {
   if(!searchValue) return;
   const url = `https://api.opencagedata.com/geocode/v1/json?q=${searchValue}&key=c6b6da0f80f24b299e08ee1075f81aa5&pretty=1`;
   const res = await fetch(url);
@@ -37,4 +37,4 @@ async function searchLocation() {
   showCoordinates(state.loc);
 }
 
-export default searchLocation();
+export default searchLocation;
